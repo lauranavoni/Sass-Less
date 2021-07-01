@@ -1,0 +1,151 @@
+/*------------------*/
+/*VARIABLES--------*/
+
+@background-color:#ffffc0;
+@text-color: blue;
+
+p{
+    background-color:@background-color;
+    color: @text-color;
+}
+
+ul{
+    background-color: @background-color;
+}
+
+li{
+    color: @text-color;
+}
+
+/*------------------*/
+/*MIXINS--------*/
+
+#circle{
+    background-color: navy;
+    border-radius: 50%;
+}
+
+#small-circle{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    #circle
+}
+
+#large-circle{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    #circle
+}
+
+/*------------------*/
+/*MIXINS CON PARAMETROS--------*/
+#circle2(@size:25px){
+    background-color: rgb(70, 70, 126);
+    border-radius: 50%;
+    width: @size;
+    height: @size;
+}
+
+#small-circle2{
+    
+    //border: 1px solid black;
+    #circle2
+}
+
+#large-circle2{
+    
+    //border: 1px solid black;
+    #circle2(100px)
+}
+
+
+/*------------------*/
+/*ANIDAMIENTO--------*/
+
+ol{
+    background-color: aqua;
+    padding: 10px;
+    list-style: none;
+    
+    li{
+        background-color:black;
+        color: #fff;
+        margin: 10px 0;
+    }
+}
+
+/*------------------*/
+/*Ambito--------*/
+
+@color-texto-ol:#000000; 
+ol{
+    background-color: aqua;
+    padding: 10px;
+    list-style: none;
+    
+    li{
+        @color-texto-ol: blueviolet;
+        background: color #888;
+        color: @color-texto-ol;
+        margin: 10px 0;
+    }
+}
+
+/*------------------*/
+/*OPERACIONES*/
+
+@div-width:100px;
+@color:crimson;
+
+div{
+    height: 50px;
+    display: inline-block;
+}
+
+#left{
+    width: @div-width;
+    background-color:@color-100;
+}
+
+#right{
+    width: @div-width *2;
+    background-color:@color;
+}
+
+/*------------------*/
+/*funciones*/
+
+
+@red:#842210;
+@blanco:#fff;
+
+#saturate{
+    background-color:saturate(@red,50%);
+    color:@blanco;
+}
+
+#original{
+    background-color:@red;
+    color:@blanco;
+}
+
+#desaturate{
+    background-color:desaturate(@red,50%);
+    color:@blanco;
+}
+
+@var: #004590;
+div#fade{
+    height: 50px;
+    width: 50px;
+    background-color: @var;
+    
+    &:hover{
+        background-color: fadeout(@var,50%);
+    }
+}
+
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas </title>
+</head> 
+ <body>
+   <h2> Canvas</h2>  
+    
+
+
+    <script>
+
+        var lienzo =null, canvas =null
+
+        var x=0, y =0
+        const SIZE =20
+
+        const KEY_UP=38
+        const KEY_DOWN=40
+        const KEY_LEFT=37
+        const KEY_RIGHT=39
+
+
+
+        var lastPress= null
+
+        function start(){
+            document.addEventListener('keydown', function(e){
+                lastPress=e.keyCode
+                console.log(lastPress)
+                
+            })
+            canvas = document.getElementById('lienzo')
+            lienzo= canvas.getContext('2d')
+            run()
+        }
+        function run(){
+            accionesJuego()
+            pintarLienzo() 
+        }
+        function accionesJuego(){
+            switch(lastPress){
+                case KEY_UP:
+                    y=y-1
+                    break
+                case KEY_DOWN:
+                    y=y+1
+                    break
+                case KEY_LEFT:
+                    x=x-1
+                    break
+                case KEY_RIGHT:
+                    x=x+1
+                    break
+                default: break
+            }
+            console.log('x;'x, 'y;',y)
+            lastPress= null
+        }
+        function pintarLienzo(){
+            lienzo.fillStyle='#000080'
+            lienzo.fillRect (0,0,canvas.width, canvas.height)
+
+            lienzo.fillStyle='#000'
+            lienzo.fillRect (x,y,SIZE,SIZE)
+
+            lienzo.fillStyle='#fff'
+            lienzo.font ="20px Arial"
+            lienzo.FillText(`x;$(x))`)        }
+        window.addEventListener('load',start)
+    </script>
+
+</body>
+</html>

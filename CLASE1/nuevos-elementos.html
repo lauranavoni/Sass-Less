@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetado Avanzado - Nuevos Elementos en HTML5:video-audio-embed y object </title>
+    <style>
+        h2{
+            color: aqua;
+        }
+        body{
+            height: 4000px;
+        }
+        video, audio{
+            margin: 10px;
+        }
+
+        img{
+            width: 50px;
+            cursor: pointer;
+        }
+        iframe{
+            width: 600px;
+            height: 400px;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<!-------------------------------------------------------------------------------------->
+<!----------------------------------- Etiqueta de video--------------------------------->
+<!-------------------------------------------------------------------------------------->
+<h2><u>Etiqueta de video</u></h2>
+<video src="./audio-video/video.mp4" width="400" controls loop></video>
+    <div>
+        <video id="mi-video" width="400" poster="https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg">
+        <source src="./audio-video/video.mp4"></source>
+        <source src="./audio-video/audio.ogg"></source>
+        Etiqueta de video no soportada
+        </video>
+
+        <div>
+            <!--
+            <button id="btn-play">Play</button>
+            <button id="btn-pause">Pause</button>
+            <button id="btn-inicio">Inicio</button>
+            <button id="btn-change">Change</button>-->
+
+            <img id="btn-play" src="https://cdn2.iconfinder.com/data/icons/social-icons-color/512/youtube-128.png" alt ="boton play" />
+            <img id="btn-pause"src="https://cdn3.iconfinder.com/data/icons/media-player-music-video-minimalist-outline-1/48/Video_player_pause-128.png" alt ="boton pause" />
+            <img id="btn-inicio"src="https://cdn3.iconfinder.com/data/icons/media-player-music-video-minimalist-outline-1/48/Video_player_fastward_play-128.png" alt ="boton inicio" />
+            <img id="btn-change"src="https://cdn0.iconfinder.com/data/icons/multimedia-solid-30px/30/playlist_list_video-128.png" alt ="boton change" />
+        </div>
+
+    </div>
+    <script>
+        var miVideo= document.getElementById('mi-video')
+        document.getElementById('btn-play').onclick= play
+        document.getElementById('btn-pause').onclick= pause
+        document.getElementById('btn-inicio').onclick= inicio
+        document.getElementById('btn-change').onclick= change
+
+        function play(){
+            console.log('play')
+            miVideo.play()
+        }
+        function pause(){
+            console.log('pause')
+            miVideo.pause()
+        }
+        function inicio(){
+            console.log('inicio')
+            miVideo.load()
+        }
+
+        var otro=false
+        function change(){
+            console.log('change')
+            otro=!otro
+            miVideo.src= otro? './audio-video/video.mp4' : './audio-video/video2.mp4'
+            miVideo.load()
+        }
+    
+    
+    
+    </script>
+
+<br>
+<hr>
+<!-------------------------------------------------------------------------------------->
+<!----------------------------------- Etiqueta de Audio--------------------------------->
+<!-------------------------------------------------------------------------------------->
+
+<h2><u>Etiqueta de audio</u></h2>
+
+
+
+<audio src="./audio-video/audio.mp3" controls loop muted></audio>
+
+<audio controls loop muted>
+    <source src="./audio-video/audio.mp3"></source>
+    <source src="./audio-video/audio.ogg"></source>
+    Etiqueta de audio no soportada
+</audio>
+
+<!-------------------------------------------------------------------------------------->
+<!-----------------------------Etiqueta de Embed y Object------------------------------->
+<!-------------------------------------------------------------------------------------->
+
+<h2><u>Embed y Object </u></h2>
+
+<h3>Embed</h3>
+<embed src="./Libro_muestra.pdf" width="800" height="600" type="">
+
+<hr>
+<h3>Object</h3>
+<object data="./Libro_muestra.pdf" width="800" height="600" type=""></object>
+
+<hr>
+<!-----------------------------Etiqueta de Iframe------------------------------->
+<!------------------------------------------------------------------------------>
+
+<h2><u> Iframe</u></h2>
+
+<iframe src="https:www.google.com" frameborder="1"></iframe>
+<iframe src="https:www.clarin.com" frameborder="0"></iframe>
+<iframe width="1904" height="768" src="https://www.youtube.com/embed/AzfZ7hLR17s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13402.235536759796!2d-60.686582099999995!3d-32.88338875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe3ffe0461bdd5db5!2sClub%20B.A.N.C.O!5e0!3m2!1ses-419!2sar!4v1624372220441!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+</body>
+</html>

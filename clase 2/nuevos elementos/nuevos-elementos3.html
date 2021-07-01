@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetado Avanzado - Nuevos Elementos en HTML5:Progress y meter  </title>
+    <style>
+        h2{
+            color:blueviolet;
+        }
+        body{
+            height: 4000px;
+        }
+        progress{
+            margin: 10px;
+        }
+        progress, meter{
+            width:180px;
+            height: 20px;
+        }
+        #barra{
+            position: relative;
+            top: 11px;
+        }
+        span{
+            margin-right: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+ <!------------------------BARRA DE PROGRESO-----------------------------------------> 
+                <h2><u>Progress (Barra de progreso)</u></h2>  
+ <progress></progress>
+
+ <progress min="0" max="100" value="0"></progress>
+ <progress min="0" max="100" value="25"></progress>
+ <progress min="0" max="100" value="50"></progress>
+ <progress min="0" max="100" value="75"></progress>
+ <progress min="0" max="100" value="100"></progress>
+
+    <div>
+        <progress id="barra" min="0" max="100" value="0"></progress><span></span>
+        <button id="btn-barra-menos">DEC</button>
+        <button id="btn-barra-mas">INC</button>
+
+    </div>
+    <script>
+        var barra = document.getElementById('barra')
+        var spanProgress = document.querySelectorAll('span')[0]
+
+        document.getElementById('btn-barra-menos').onclick=menosProgress
+        document.getElementById('btn-barra-mas').onclick=masProgress
+
+        var valorProgress=0
+        span.innerText=valorProgress + '% '
+        
+        function menosProgress(){
+            console.log('menosProgress')
+            if(valorProgress > 0) valorProgress -=10
+            valorProgress-=10
+            barra.value= valorProgress
+            spanProgress.innerText = valorProgress
+        }
+        
+        function masProgress(){
+            console.log('masProgress')
+            if(valorProgress < 0) valorProgress +=10
+            valorProgress+=10
+            barra.value = valorProgress
+            spanProgress.innerText = valorProgress
+        }
+
+
+    </script>
+
+ <!--BARRA DE METER--> 
+ <h2><u>meter (Barra de medicion)</u></h2>  
+ <meter></meter>
+
+ <meter min="0" max="100" value="0" low="34" high="60"optimum="90"></meter>
+ <meter min="0" max="100" value="25"low="34" high="60"optimum="90"></meter>
+ <meter min="0" max="100" value="50"low="34" high="60"optimum="90"></meter>
+ <meter min="0" max="100" value="75"low="34" high="60"optimum="90"></meter>
+ <meter min="0" max="100" value="100"low="34" high="60"optimum="90"></meter>
+
+    <div>
+        <meter id="meter" min="0" max="100" value="0"low="34" high="60"optimum="90"></meter><span></span>
+        <button id="btn-meter-menos">DEC</button>
+        <button id="btn-meter-mas">INC</button>
+
+    </div>
+    <script>
+        var meter = document.getElementById('meter')
+        var spanMeter = document.querySelectorAll('span')[1]
+
+        document.getElementById('btn-meter-menos').onclick=menosMeter
+        document.getElementById('btn-meter-mas').onclick=masMeter
+
+        var valorMeter=0
+        spanMeter.innerText=valorMeter + '% '
+        
+        function menosMeter(){
+            console.log('menosMeter')
+            if(valorMeter > 0) valorMeter -=10
+            valorMeter-=10
+            meter.value= valorMeter
+            spanMeter.innerText = valorMeter
+        }
+        
+        function masMeter(){
+            console.log('masMeter')
+            if(valorMeter < 0) valorMeter +=10
+            valorMeter+=10
+            meter.value = valorMeter
+            spanMeter.innerText = valorMeter
+        }
+
+
+    </script>
+</body>
+</html>
